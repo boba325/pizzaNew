@@ -1,0 +1,95 @@
+﻿<Window x:Class="pizza.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pizza"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="images/smoke1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition Height="5.3*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="3"
+                        ContentTemplate="{StaticResource UserHeaderTemplate}" />
+
+        <!-- Centered, larger login controls -->
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        MaxWidth="760"
+                        MinWidth="360"
+                        Margin="8">
+                <TextBlock Text="אימייל:"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Left"
+                           Margin="0,0,0,6"/>
+                <TextBox x:Name="UsernameBox"
+                         Height="54"
+                         MinWidth="360"
+                         Margin="0,0,0,14"
+                         FontSize="16"
+                         VerticalContentAlignment="Center"
+                         HorizontalAlignment="Stretch"/>
+
+                <TextBlock Text="סיסמה:"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Left"
+                           Margin="0,0,0,6"/>
+                <Grid Height="54" Margin="0,0,0,14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <PasswordBox x:Name="PasswordBox"
+                                 Grid.Column="0"
+                                 Height="54"
+                                 MinWidth="360"
+                                 FontSize="16"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalAlignment="Stretch"/>
+
+                    <Button Grid.Column="1"
+                            Content="כניסה"
+                            Width="110"
+                            Height="54"
+                            Margin="10,0,0,0"
+                            Click="Enter_Click"
+                            />
+                </Grid>
+
+                <Button x:Name="SignupButton"
+                        Content="הרשמה"
+                        Height="54"
+                        Width="200"
+                        HorizontalAlignment="Center"
+                        Click="Signup_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="pizza.MenuDesserts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pizza"
+        mc:Ignorable="d"
+        Title="MenuDesserts" Height="450" Width="800"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="images/smoke1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition Height="5.3*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="3"
+                        ContentTemplate="{StaticResource UserHeaderTemplate}" />
+
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto">
+            <UniformGrid Columns="3" Margin="70,30,70,30">
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DessertMenu/ccake.png" Width="240" Height="240" Stretch="Uniform"/>
+                    <Button Content="הוסף עוגת גבינה" Tag="cake" Width="240" Height="60" Margin="0,18,0,0" Click="AddDessertToOrder_Click"/>
+                </StackPanel>
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DessertMenu/iceCream.png" Width="240" Height="240" Stretch="Uniform"/>
+                    <Button Content="הוסף גלידה" Tag="iceCream" Width="240" Height="60" Margin="0,18,0,0" Click="AddDessertToOrder_Click"/>
+                </StackPanel>
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DessertMenu/soufle.png" Width="240" Height="240" Stretch="Uniform"/>
+                    <Button Content="הוסף סופלה שוקולד" Tag="souffle" Width="240" Height="60" Margin="0,18,0,0" Click="AddDessertToOrder_Click"/>
+                </StackPanel>
+            </UniformGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>

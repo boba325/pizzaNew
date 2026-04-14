@@ -1,0 +1,100 @@
+﻿<Window x:Class="pizza.CreditCardPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Credit Card"
+        Height="620"
+        Width="460"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="#F0F0F0"
+        FlowDirection="RightToLeft">
+    <Grid Margin="20">
+        <Border BorderBrush="#CCCCCC"
+                BorderThickness="1"
+                CornerRadius="6"
+                Padding="14"
+                Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel FlowDirection="RightToLeft">
+                    <TextBlock Text="הכנס כאן את פרטי האשראי:"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Margin="0,0,0,22"
+                               TextAlignment="Center"/>
+
+                    <TextBlock Text="שם בעל הכרטיס" Margin="0,4,0,6" TextAlignment="Right"/>
+                    <TextBox x:Name="CardholderNameBox"
+                             Height="40"
+                             Padding="10"
+                             FontSize="14"
+                             FlowDirection="RightToLeft"
+                             HorizontalContentAlignment="Right"
+                             Margin="0,0,0,12"/>
+
+                    <TextBlock Text="מספר הכרטיס" Margin="0,4,0,6" TextAlignment="Right"/>
+                    <TextBox x:Name="CardNumberBox"
+                             Height="40"
+                             Padding="10"
+                             FontSize="14"
+                             FlowDirection="RightToLeft"
+                             HorizontalContentAlignment="Right"
+                             Margin="0,0,0,12"/>
+
+                    <TextBlock Text="תאריך תוקף" Margin="0,4,0,6" TextAlignment="Right"/>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="12"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox x:Name="ExpMonthComboBox"
+                                  Grid.Column="0"
+                                  Height="40"
+                                  FontSize="14"
+                                  FlowDirection="RightToLeft"/>
+                        <ComboBox x:Name="ExpYearComboBox"
+                                  Grid.Column="2"
+                                  Height="40"
+                                  FontSize="14"
+                                  FlowDirection="RightToLeft"/>
+                    </Grid>
+
+                    <TextBlock Text="CVV" Margin="0,4,0,6" TextAlignment="Right"/>
+                    <TextBox x:Name="CvvBox"
+                             Height="40"
+                             Padding="10"
+                             FontSize="14"
+                             MaxLength="4"
+                             FlowDirection="RightToLeft"
+                             HorizontalContentAlignment="Right"
+                             Margin="0,0,0,14"/>
+
+                    <CheckBox x:Name="SaveCardCheckBox"
+                              Content="שמור נתוני הכרטיס"
+                              Margin="0,6,0,18"
+                              FontSize="14"/>
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Content="סיום"
+                                Width="130"
+                                Height="45"
+                                Margin="8"
+                                Background="#4CAF50"
+                                Foreground="White"
+                                Click="Continue_Click"/>
+                        <Button Content="בטל"
+                                Width="130"
+                                Height="45"
+                                Margin="8"
+                                Background="#E14B4B"
+                                Foreground="White"
+                                Click="Cancel_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

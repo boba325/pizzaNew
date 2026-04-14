@@ -1,0 +1,50 @@
+﻿<Window x:Class="pizza.MenuDrinks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pizza"
+        mc:Ignorable="d"
+        Title="MenuDrinks" Height="450" Width="800"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="images/smoke1.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition Height="5.3*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="3"
+                        ContentTemplate="{StaticResource UserHeaderTemplate}" />
+
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto">
+            <UniformGrid Columns="4" Margin="40,30,40,30">
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DrinkMenu/coca.png" Width="220" Height="220" Stretch="Uniform"/>
+                    <Button Content="הוסף קולה" Tag="coca" Width="220" Height="60" Margin="0,18,0,0" Click="AddDrinkToOrder_Click"/>
+                </StackPanel>
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DrinkMenu/cocaZero.png" Width="220" Height="220" Stretch="Uniform"/>
+                    <Button Content="הוסף קולה זירו" Tag="cocaZero" Width="220" Height="60" Margin="0,18,0,0" Click="AddDrinkToOrder_Click"/>
+                </StackPanel>
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DrinkMenu/sprite.png" Width="220" Height="220" Stretch="Uniform"/>
+                    <Button Content="הוסף ספרייט" Tag="sprite" Width="220" Height="60" Margin="0,18,0,0" Click="AddDrinkToOrder_Click"/>
+                </StackPanel>
+                <StackPanel Margin="18" HorizontalAlignment="Center">
+                    <Image Source="images/DrinkMenu/water.png" Width="220" Height="220" Stretch="Uniform"/>
+                    <Button Content="הוסף מים מינרלים" Tag="water" Width="220" Height="60" Margin="0,18,0,0" Click="AddDrinkToOrder_Click"/>
+                </StackPanel>
+            </UniformGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>

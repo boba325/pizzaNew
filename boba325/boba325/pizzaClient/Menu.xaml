@@ -1,0 +1,84 @@
+﻿<Window x:Class="pizza.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pizza"
+        mc:Ignorable="d"
+        Title="תפריט" Height="450" Width="800"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="43*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="images/rekaNew.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition Height="5.3*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Replace the original Image+Viewbox block with this single line -->
+        <ContentControl Grid.Row="0" Grid.ColumnSpan="3"
+                        ContentTemplate="{StaticResource UserHeaderTemplate}" />
+
+        <!-- Bottom area: images above buttons, responsive -->
+        <Grid Grid.Row="1" Grid.ColumnSpan="3"
+              Margin="20,0,20,40"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <!-- give images more proportional space so they scale larger -->
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Larger images: remove tight MaxHeight and let the row-star allocation expand them.
+                 Keep a generous MaxHeight to avoid uncontrolled growth on very large screens. -->
+            <Image Grid.Row="0" Grid.Column="0"
+                   Source="images/Menu/iceMenu.png"
+                   MaxHeight="900"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch"
+                   Stretch="Uniform"
+                   Margin="8"/>
+            <Image Grid.Row="0" Grid.Column="1"
+                   Source="images/Menu/pizzaMenu.png"
+                   MaxHeight="900"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch"
+                   Stretch="Uniform"
+                   Margin="8"/>
+            <Image Grid.Row="0" Grid.Column="2"
+                   Source="images/Menu/cocaMenu.png"
+                   MaxHeight="900"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch"
+                   Stretch="Uniform"
+                   Margin="8"/>
+
+            <!-- Buttons below images restored to original (wrapped in Viewbox so they scale like before) -->
+            <Viewbox Grid.Row="1" Grid.ColumnSpan="3"
+                     HorizontalAlignment="Center"
+                     Margin="0,12,0,0"
+                     Stretch="Uniform"
+                     MaxHeight="160">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Height="40" Width="120" Margin="36,0,36,0" Click="OpenDesserts_Click">קינוחים</Button>
+                    <Button Height="40" Width="120" Margin="36,0,36,0" Click="OpenPizza_Click">פיצות</Button>
+                    <Button Height="40" Width="120" Margin="36,0,36,0" Click="OpenDrinks_Click">שתייה קלה</Button>
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</Window>

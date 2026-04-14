@@ -1,0 +1,116 @@
+<Application x:Class="pizza.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:pizza"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFFD8205"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FFFD8205"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="OrderCellStyle" TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Foreground" Value="#111111"/>
+        </Style>
+
+        <Style x:Key="OrderCellStyleBold" TargetType="TextBlock" BasedOn="{StaticResource OrderCellStyle}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <DataTemplate x:Key="UserHeaderTemplate">
+            <Grid>
+                <Image Source="images/logo.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Top"
+                       Width="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth}"/>
+
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      Margin="44,14,44,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <UniformGrid Grid.Column="0"
+                                 Rows="1"
+                                 Columns="4"
+                                 HorizontalAlignment="Stretch">
+                        <Button Content="בית" Height="70" Margin="8" Click="GoHome_Click"/>
+                        <Button Content="תפריט" Height="70" Margin="8" Click="OpenMenu_Click"/>
+                        <Button Content="ההזמנה שלי" Height="70" Margin="8" Click="OpenOrder_Click"/>
+                        <Button Content="איזור אישי" Height="70" Margin="8" Click="OpenLogin_Click"/>
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AdminHeaderTemplate">
+            <Grid>
+                <Image Source="images/logo.png"
+                       Stretch="Fill"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Top"
+                       Width="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth}"/>
+
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      Margin="44,14,44,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <UniformGrid Grid.Column="0"
+                                 Rows="1"
+                                 Columns="4"
+                                 HorizontalAlignment="Stretch">
+                        <Button Content="משתמשים" Height="70" Margin="8" Click="OpenAdminUsers_Click"/>
+                        <Button Content="תפעול הזמנות" Height="70" Margin="8" Click="OpenAdminOrders_Click"/>
+                        <Button Content="התפריט" Height="70" Margin="8" Click="OpenAdminMenu_Click"/>
+                        <Button Content="התנתק" Height="70" Margin="8" Click="Logout_Click"/>
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AppHeaderTemplate">
+            <ContentControl ContentTemplate="{StaticResource UserHeaderTemplate}"/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
